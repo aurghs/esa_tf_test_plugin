@@ -10,7 +10,7 @@ def run_processing(
     processing_dir,
     output_dir,
 ):
-    logger.info("start test plugin processing")
+    logger.info(f"start test plugin processing with workflow_options: {workflow_options}")
     return product_path
 
 
