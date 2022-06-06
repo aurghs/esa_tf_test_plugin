@@ -28,9 +28,9 @@ def run_processing(
         f"with workflow_options: {workflow_options}"
     )
 
-    output_path = os.path.join(output_dir, os.path.basname(product_path))
+    output_path = os.path.join(output_dir, os.path.basename(os.path.normpath(product_path)))
     os.rename(product_path, output_path)
-    return product_path
+    return output_path
 
 
 workflow_description = {
