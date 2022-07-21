@@ -18,8 +18,6 @@ def run_processing(
     :param dict workflow_options: the user's options dictionary
     :param str processing_dir: path of the processing directory
     :param str output_dir: output directory where to store the output file
-
-
     :return str: output path
     """
 
@@ -28,7 +26,8 @@ def run_processing(
         f"with workflow_options: {workflow_options}"
     )
 
-    output_path = os.path.join(output_dir, os.path.basename(os.path.normpath(product_path)))
+    basename = os.path.basename(os.path.normpath(product_path))[::-1].split(".", 1)[-1][::-1]
+    output_path = os.path.join(output_dir, basename)
     os.rename(product_path, output_path)
     return output_path
 
@@ -36,7 +35,7 @@ def run_processing(
 workflow_description = {
     "WorkflowName": "test plugin",
     "Description": "dummy plugin for testing esa_tf plugins interface",
-    "Execute": "esa_tf_test_plugin.run_processing",
+    "Execute": "esa_tf_test_plugin.workflow.run_processing",
     "InputProductType": "S2MSI1C",
     "OutputProductType": "S2MSI1C",
     "WorkflowVersion": "0.1",
@@ -56,5 +55,7 @@ workflow_description = {
             "Default": "one",
             "Enum": ["one", "two"],
         }
-    }
+    },
+    "ProcessorName": "test_plugin",
+    "ProcessorVersion": "v0.1",
 }
