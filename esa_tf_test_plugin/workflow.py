@@ -32,7 +32,7 @@ def run_processing(
     return output_path
 
 
-workflow_description = {
+workflow_description_1 = {
     "WorkflowName": "test plugin",
     "Description": "dummy plugin for testing esa_tf plugins interface",
     "Execute": "esa_tf_test_plugin.workflow.run_processing",
@@ -58,4 +58,61 @@ workflow_description = {
     },
     "ProcessorName": "test_plugin",
     "ProcessorVersion": "v0.1",
+}
+
+workflow_description_2 = {
+    "WorkflowName": "test plugin",
+    "Description": "dummy plugin for testing esa_tf plugins interface",
+    "Execute": "esa_tf_test_plugin.workflow.run_processing",
+    "InputProductType": "S2MSI1C",
+    "OutputProductType": "S2MSI1C",
+    "WorkflowVersion": "0.1",
+    "WorkflowOptions": {
+        "mandatory_parameter": {
+            "Description": "mandatory parameter",
+            "Type": "boolean",
+        },
+        "optional_parameter_1": {
+            "Description": "first optional parameter",
+            "Type": "integer",
+            "Default": 1,
+        },
+        "optional_parameter_2": {
+            "Description": "second optional parameter",
+            "Type": "string",
+            "Default": "one",
+            "Enum": ["one", "two"],
+        }
+    },
+    "ProcessorName": "test_plugin",
+    "ProcessorVersion": "v0.1",
+}
+
+workflow_description_3 = {
+    "WorkflowName": "test plugin",
+    "Description": "dummy plugin for testing esa_tf plugins interface",
+    "Execute": "esa_tf_test_plugin.workflow.run_processing",
+    "InputProductType": "S2MSI1C",
+    "OutputProductType": "S2MSI1C",
+    "WorkflowVersion": "0.1",
+    "WorkflowOptions": {
+        "mandatory_parameter": {
+            "Description": "mandatory parameter",
+            "Type": "boolean",
+        },
+        "optional_parameter_1": {
+            "Description": "first optional parameter",
+            "Type": "integer",
+            "Default": 1,
+        },
+        "optional_parameter_2": {
+            "Description": "second optional parameter",
+            "Type": "string",
+            "Default": "one",
+            "Enum": ["one", "two"],
+        }
+    },
+    "ProcessorName": "test_plugin",
+    "ProcessorVersion": "v0.1",
+    "SupportTraceabilty": False
 }
